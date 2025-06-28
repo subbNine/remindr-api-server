@@ -17,4 +17,5 @@ export default new DataSource({
   migrations: ["dist/migrations/*{.ts,.js}"],
   synchronize: configService.get("NODE_ENV") === "development",
   logging: configService.get("NODE_ENV") === "development",
+  ssl: true,
 });

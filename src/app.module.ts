@@ -29,6 +29,7 @@ import { AdminModule } from "./admin/admin.module";
         entities: [__dirname + "/**/*.entity{.ts,.js}"],
         synchronize: configService.get("NODE_ENV") === "development",
         logging: configService.get("NODE_ENV") === "development",
+        ssl: true,
       }),
       inject: [ConfigService],
     }),
