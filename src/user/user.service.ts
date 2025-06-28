@@ -25,7 +25,9 @@ export class UserService {
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    return this.userRepository.findOne({ where: { email } });
+    return this.userRepository.findOne({
+      where: { email: email.toLowerCase() },
+    });
   }
 
   async create(userData: Partial<User>): Promise<User> {
@@ -37,6 +39,7 @@ export class UserService {
     const hashedPassword = await bcrypt.hash(userData.password, 10);
     const user = this.userRepository.create({
       ...userData,
+      email: userData.email.toLowerCase(),
       password: hashedPassword,
     });
 

@@ -28,13 +28,14 @@ export class AuthService {
 
   async register(registerDto: RegisterDto): Promise<User> {
     const existing = await this.userRepository.findOne({
-      where: { email: registerDto.email },
+      where: { email: registerDto.email.toLowerCase() },
     });
     if (existing) throw new ConflictException("Email already registered");
 
     const hashedPassword = await bcrypt.hash(registerDto.password, 10);
     const user = this.userRepository.create({
       ...registerDto,
+      email: registerDto.email.toLowerCase(),
       password: hashedPassword,
       isEmailVerified: false, // Will be verified via OTP
     });
@@ -52,7 +53,9 @@ export class AuthService {
   }
 
   async validateUser(email: string, password: string): Promise<User | null> {
-    const user = await this.userRepository.findOne({ where: { email } });
+    const user = await this.userRepository.findOne({
+      where: { email: email.toLowerCase() },
+    });
     if (user && (await bcrypt.compare(password, user.password))) {
       return user;
     }
