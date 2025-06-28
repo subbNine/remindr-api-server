@@ -33,7 +33,7 @@ The admin system provides role-based access control with three user roles:
 - `POST /admin/setup/:email` - Complete admin setup with OTP
 - `GET /admin/admins` - Get all admins (ADMIN, SUPER_ADMIN)
 - `GET /admin/admins/:id` - Get specific admin (ADMIN, SUPER_ADMIN)
-- `PUT /admin/admins/:id/status` - Update admin status (SUPER_ADMIN only)
+- `PATCH /admin/admins/:id/status` - Update admin status (SUPER_ADMIN only)
 - `DELETE /admin/admins/:id` - Delete admin (SUPER_ADMIN only)
 - `GET /admin/stats` - Get admin statistics (ADMIN, SUPER_ADMIN)
 - `POST /admin/resend-invitation` - Resend admin invitation (ADMIN, SUPER_ADMIN)
@@ -251,14 +251,14 @@ const retryCount = await this.notificationService.retryFailedNotifications();
 
 ### User Management
 - `GET /user/profile` - Get user profile
-- `PUT /user/profile` - Update user profile
+- `PATCH /user/profile` - Update user profile
 - `DELETE /user/profile` - Delete user account
 
 ### Groups
 - `POST /groups` - Create group
 - `GET /groups` - Get all groups
 - `GET /groups/:id` - Get specific group
-- `PUT /groups/:id` - Update group
+- `PATCH /groups/:id` - Update group
 - `DELETE /groups/:id` - Delete group
 - `POST /groups/:id/contacts` - Add contact to group
 - `DELETE /groups/:id/contacts/:contactId` - Remove contact from group
@@ -267,7 +267,7 @@ const retryCount = await this.notificationService.retryFailedNotifications();
 - `POST /contacts` - Create contact
 - `GET /contacts` - Get all contacts
 - `GET /contacts/:id` - Get specific contact
-- `PUT /contacts/:id` - Update contact
+- `PATCH /contacts/:id` - Update contact
 - `DELETE /contacts/:id` - Delete contact
 
 ## Setup

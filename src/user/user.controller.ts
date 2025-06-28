@@ -1,7 +1,7 @@
 import {
   Controller,
   Get,
-  Put,
+  Patch,
   Delete,
   Body,
   UseGuards,
@@ -35,7 +35,7 @@ export class UserController {
     return this.userService.findById(user.id);
   }
 
-  @Put("profile")
+  @Patch("profile")
   @ApiOperation({ summary: "Update user profile" })
   @ApiResponse({ status: 200, description: "Profile updated successfully" })
   @ApiResponse({ status: 400, description: "Bad request" })

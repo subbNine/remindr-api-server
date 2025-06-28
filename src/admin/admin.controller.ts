@@ -2,7 +2,7 @@ import {
   Controller,
   Get,
   Post,
-  Put,
+  Patch,
   Delete,
   Body,
   Param,
@@ -101,7 +101,7 @@ export class AdminController {
     return this.adminService.getAdminById(id);
   }
 
-  @Put("admins/:id/status")
+  @Patch("admins/:id/status")
   @Roles(UserRole.SUPER_ADMIN)
   @ApiOperation({ summary: "Update admin status (activate/deactivate)" })
   @ApiParam({ name: "id", description: "Admin ID" })
