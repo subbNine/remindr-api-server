@@ -1,0 +1,4 @@
+export enum ReminderType {
+  DAILY_CONNECTION = "DAILY_CONNECTION",
+  BIRTHDAY = "BIRTHDAY",
+}
