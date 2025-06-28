@@ -11,6 +11,7 @@ import { ReminderModule } from "./reminder/reminder.module";
 import { NotificationModule } from "./notification/notification.module";
 import { OtpModule } from "./otp/otp.module";
 import { AdminModule } from "./admin/admin.module";
+import { HealthModule } from "./health/health.module";
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { AdminModule } from "./admin/admin.module";
       inject: [ConfigService],
     }),
     ScheduleModule.forRoot(),
+    HealthModule,
     AuthModule,
     UserModule,
     GroupModule,
